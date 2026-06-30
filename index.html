@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abigail Bentley's Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fffaf3;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        .top-nav {
+            width: 100%;
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            justify-content: space-between; /* name left, buttons right */
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            margin-left: 18px;
+            text-decoration: none;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 2px solid #dcdcdc;
+            background: #f7f7f7;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            background: #eaeaea;
+            transform: translateY(-2px);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 80px 20px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 18px rgba(255,255,255,0.9);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .hero-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 26px;
+            background-color: #222;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .projects {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .projects h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 36px;
+            text-decoration: none;
+            color: #222;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 18px rgba(255,255,255,0.9);
+            background: #ffffff;
+        }
+
+        .pink-card {
+            background: #ffe6f2;
+            border: 2px solid #ffb3d9;
+        }
+
+        .pink-card:hover {
+            background: #ffe6f2;
+            border-color: #ffb3d9;
+        }
+
+        .blue-card {
+            background: #e6f3ff;
+            border: 2px solid #b3d7ff;
+        }
+
+        .blue-card:hover {
+            background: #e6f3ff;
+            border-color: #b3d7ff;
+        }
+
+        .purple-card {
+            background: #f1e6ff;
+            border: 2px solid #d4b3ff;
+        }
+
+        .purple-card:hover {
+            background: #f1e6ff;
+            border-color: #d4b3ff;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .project-desc {
+            font-size: 1rem;
+            line-height: 1.55;
+            margin-bottom: 22px;
+        }
+
+        .github-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background-color: #ffffff;
+            color: #222;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .github-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 12px rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-nav">
+        <div class="nav-inner">
+            <div class="nav-name">Abigail Bentley</div>
+            <div class="nav-links">
+                <a href="AbigailBentleyResume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/abigail-bentley-6a966635b" target="_blank">LinkedIn</a>
+                <a href="https://github.com/abentley29" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+
+        <img src="headshot.jpeg" alt="Abigail Bentley Headshot">
+
+        <div class="hero-text">
+            <h1>Abigail Bentley</h1>
+
+            <h3>A Bit About Me</h3>
+            <p>
+                I graduated from the University of Virginia's College at Wise with a B.S. in Software Engineering and Computer Science. I'm a curious problem-solver who likes exploring how things work and improving them. I focus on writing clean, maintainable code and creating software thats practical, efficient, and user-friendly.
+            </p>
+
+            <a href="#projects" class="cta-btn">View Projects ↓</a>
+        </div>
+
+    </section>
+
+    <section id="projects" class="projects">
+        <h3>My Projects</h3>
+
+        <div class="project-grid">
+
+            <a class="project-card pink-card" href="https://github.com/juliakessler318-cloud/Room-To-Bloom.git" target="_blank">
+                <h4 class="project-title">🌸 Room to Bloom 🌸</h4>
+
+                <p class="project-desc"> 
+                    A mobile self‑care app built in Flutter using MVC architecture. Features task management, XP leveling, energy‑based garden interactions, a petal currency system, unlockable flowers, themes, and hand‑drawn UI elements created in Procreate. Developed collaboratively as a three‑person senior capstone project focused on making self‑care feel rewarding through gentle gamification and a cozy garden theme. For this project, I designed the UI for the app and handled the frontend development of the Task and Garden pages. I also built both the frontend and backend for the Shop page and created the majority of the graphics.
+                </p>
+
+                <div class="github-btn">View on GitHub</div>
+            </a>
+
+            <a class="project-card blue-card" href="https://github.com/abentley29/BasicMemeGenerator.git" target="_blank">
+                <h4 class="project-title">😂 Basic Meme Generator 😂</h4>
+
+                <p class="project-desc">
+                    A Java Swing meme generator that lets users load images, add top and bottom text, choose text colors (including custom RGB), add watermarks, and export the final meme as a JPG. Includes automatic text resizing, live preview updates, custom image loading, and a full menu of meme templates.
+                </p>
+
+                <div class="github-btn">View on GitHub</div>
+            </a>
+
+            <a class="project-card purple-card" href="https://github.com/abentley29/TicTacToe.git" target="_blank">
+                <h4 class="project-title">❌ Tic Tac Toe ⭕</h4>
+                <p class="project-desc">
+                    A basic Tic Tac Toe game built in C# using .NET Windows Forms. Players take turns placing two different symbols on a 3×3 grid, with automatic win and draw detection and a reset option to start a new round.
+                </p>
+
+                <div class="github-btn">View on GitHub</div>
+            </a>
+
+        </div>
+    </section>
+
+</body>
+</html>
